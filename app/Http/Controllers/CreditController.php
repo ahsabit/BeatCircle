@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Music;
+use App\Models\Credit;
 use Illuminate\Http\Request;
 
-class MusicController extends Controller
+class CreditController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -34,7 +34,7 @@ class MusicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Music $credit)
+    public function show(Credit $credit)
     {
         //
     }
@@ -42,7 +42,7 @@ class MusicController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Music $credit)
+    public function edit(Credit $credit)
     {
         //
     }
@@ -50,7 +50,7 @@ class MusicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Music $credit)
+    public function update(Request $request, Credit $credit)
     {
         //
     }
@@ -58,7 +58,7 @@ class MusicController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Music $credit)
+    public function destroy(Credit $credit)
     {
         //
     }

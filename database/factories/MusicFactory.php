@@ -17,7 +17,13 @@ class MusicFactory extends Factory
     public function definition(): array
     {
         return [
-            //
+            'title' => fake()->name(),
+            'album' => fake()->name(),
+            'artist' => fake()->name(),
+            'price' => '$' . fake()->numberBetween(1, 50),
+            'cover' => 'https://placehold.co/400',
+            'link' => fake()->url(),
+            'credits_id' => 1,
         ];
     }
 }
