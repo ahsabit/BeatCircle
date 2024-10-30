@@ -1,4 +1,4 @@
-import { UserContext } from "@/Pages/Welcome";
+import { UserContext } from "@/Pages/Home";
 import { Link } from "@inertiajs/react";
 import { useContext, useEffect, useRef } from "react";
 

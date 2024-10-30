@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 
-export default function MusicSection({ musicList }) {
+export default function MusicSection({ musicList, title }) {
     const carouselRef = useRef(null);
     const [isOverflowing, setIsOverflowing] = useState(false);
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -36,8 +36,9 @@ export default function MusicSection({ musicList }) {
     };
 
     return (
-        <section>
+        <section className="md:pl-64">
             <div className="px-4 pb-4 pt-14 carousel-container w-full overflow-hidden relative">
+                <span className="absolute top-4 text-xl font-bold">{title}</span>
                 {isOverflowing && (
                     <>
                         <button

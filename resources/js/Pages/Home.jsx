@@ -5,40 +5,29 @@ import { createContext } from 'react';
 
 export const UserContext = createContext();
 
-export default function Welcome({ auth, laravelVersion, phpVersion }) {
+export default function Welcome({ auth }) {
     const HistoryList = [
-        {
-            title : 'Hello world',
-            album : 'The album',
-            artist : 'The artist',
-            price : '$5',
-            cover : 'https://placehold.co/400',
-            link : '#'
-        },
-        {
-            title : 'Hello world',
-            album : 'The album',
-            artist : 'The artist',
-            price : '$5',
-            cover : 'https://placehold.co/400',
-            link : '#'
-        },
-        {
-            title : 'Hello world',
-            album : 'The album',
-            artist : 'The artist',
-            price : '$5',
-            cover : 'https://placehold.co/400',
-            link : '#'
-        },
     ];
+    for (let i = 0; i < 10; i++) {
+        HistoryList[i] = 
+        {
+            title : 'Hello world',
+            album : 'The album',
+            artist : 'The artist',
+            price : '$5',
+            cover : 'https://placehold.co/400',
+            link : '#'
+        };
+    }
     return (
         <>
             <Head title="BeatCircle"/>
             <UserContext.Provider value={auth.user}>
                 <PageHeader />
             </UserContext.Provider>
-            <MusicSection musicList={HistoryList} />
+            <main>
+                <MusicSection musicList={HistoryList} title="I am title" />
+            </main>
         </>
     );
 }
