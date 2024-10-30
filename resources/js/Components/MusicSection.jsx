@@ -1,6 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 
-export default function MusicSection({ musicList, title }) {
+export default function MusicSection({ className, musicList, title }) {
     const carouselRef = useRef(null);
     const [isOverflowing, setIsOverflowing] = useState(false);
     const [scrollPosition, setScrollPosition] = useState(0);
@@ -36,7 +36,7 @@ export default function MusicSection({ musicList, title }) {
     };
 
     return (
-        <section className="md:pl-64">
+        <section className={"md:pl-64 " + className}>
             <div className="px-4 pb-4 pt-14 carousel-container w-full overflow-hidden relative">
                 <span className="absolute top-4 text-xl font-bold">{title}</span>
                 {isOverflowing && (
@@ -64,7 +64,7 @@ export default function MusicSection({ musicList, title }) {
                         <a
                             key={i}
                             href={music.link}
-                            className="card card-compact lg:card-side bg-neutral shadow-xl flex-[0_0_40%] sm:flex-[0_0_22%]"
+                            className="card card-compact bg-neutral shadow-xl flex-[0_0_40%] sm:flex-[0_0_22%]"
                         >
                             <figure>
                                 <img
@@ -75,7 +75,7 @@ export default function MusicSection({ musicList, title }) {
                             </figure>
                             <div className="card-body">
                                 <div className="flex justify-between items-start flex-row">
-                                    <h2 className="card-title">{music.title}</h2>
+                                    <h2 className="card-title mr-1">{music.title}</h2>
                                     <span>{music.price}</span>
                                 </div>
                                 <div className="flex flex-row">

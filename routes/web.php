@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MusicController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -10,9 +11,9 @@ Route::get('/', function () {
         'canLogin' => Route::has('login'),
         'canRegister' => Route::has('register'),
     ]);
-});
+})->name('home');
 
-Route::get('/music', []);
+Route::post('/fetch_music', [MusicController::class,'fetch'])->name('music.fetch');
 
 //search result page music.show
 

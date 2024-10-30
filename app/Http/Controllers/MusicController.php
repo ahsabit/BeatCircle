@@ -2,11 +2,27 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\MusicResource;
 use App\Models\Music;
 use Illuminate\Http\Request;
 
 class MusicController extends Controller
 {
+    public function fetch(Request $request)
+    {
+        $bundleCount = $request->bundle_count;
+        $reqNum = $request->req_num;
+        $offset = $reqNum * 10;
+        $musics = [];
+        
+        for ($i = 0; $i < $bundleCount; $i++) {
+            $temp_musics = Music::offset($offset)->limit(10)->get();
+            $musics[$i] = MusicResource::collection($temp_musics);
+            $offset += 10;
+        }
+        
+        return response()->json($musics);
+    }
     /**
      * Display a listing of the resource.
      */
