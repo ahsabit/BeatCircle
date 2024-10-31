@@ -23,7 +23,7 @@ export default function PageHeader() {
             <div className="navbar bg-base-100">
                 <div ref={visibleHeader} className='w-full flex flex-row flex-wrap'>
                     <div className="flex-none">
-                        <Drawer className="md:hidden" />
+                        <Drawer className="md:hidden z-50" />
                         <ul className="hidden fixed top-0 left-0 menu bg-base-200 text-base-content min-h-full w-64 p-4 md:flex">
                             <li>
                                 <a className="text-xl flex flex-row items-center cursor-pointer">

@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
 
         // Updated Rate Limiter configuration
         RateLimiter::for('freezeUser', function (Request $request) {
-            return Limit::perHour(15)
+            return Limit::perMinute(5)
                 ->by(optional($request->user())->id ?: $request->ip())
                 ->response(function() {
                     return response()->json([
