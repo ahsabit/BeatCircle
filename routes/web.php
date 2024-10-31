@@ -13,7 +13,7 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::post('/fetch_music', [MusicController::class,'fetch'])->name('music.fetch');
+Route::post('/fetch_music', [MusicController::class,'fetch'])->middleware(['throttle:freezeUser'])->name('music.fetch');
 
 //search result page music.show
 

@@ -1,5 +1,6 @@
 import MusicSection from '@/Components/MusicSection';
 import { useEffect, useRef, useState } from 'react';
+import Modal from './Modal';
 
 export default function MainSection () {
     const [musicData, setMusicData] = useState([]);
@@ -43,7 +44,7 @@ export default function MainSection () {
                 setMusicData(prev => [...prev, res.data[0]]);
             }
         }).catch((err) => {
-            console.log(err);
+            return;
         });
     };
 
@@ -52,7 +53,7 @@ export default function MainSection () {
             {
                 musicData.map((musics, i) => {
                     return(
-                        <MusicSection className="music_section" key={i} musicList={musics} />
+                        <MusicSection className="music_section" key={i} musicList={musics} title={musics[0]['album']}/>
                     );
                 })
             }
