@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Http\Resources\MusicResource;
 use App\Models\Music;
 use Illuminate\Http\Request;
+use Inertia\Inertia;
+use Route;
 
 class MusicController extends Controller
 {
     public function fetch(Request $request)
     {
         try {
+            $request->validate([
+                'bundle_count' => 'required|integer|between:1,4',
+                'req_num' => 'required|integer',
+            ]);
             $bundleCount = $request->bundle_count;
             $reqNum = $request->req_num;
             $offset = $reqNum * 10;
@@ -31,9 +37,24 @@ class MusicController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        $request->validate([
+            'key' => 'required|string',
+            'time' => 'required|integer',
+        ]);
+        if ($request->key && $request->time) {
+            $musics = Music::where('title', 'like', '%' . $request->key . '%')
+                                ->orWhere('album', 'like', '%' . $request->key . '%')
+                                ->limit(10)
+                                ->get();
+
+            return Inertia::render('Search', [
+                'result' => MusicResource::collection($musics),
+            ]);
+        }else{
+            abort(404);
+        }
     }
 
     /**

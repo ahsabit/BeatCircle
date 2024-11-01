@@ -4,7 +4,6 @@ import { Head } from '@inertiajs/react';
 import { createContext, useRef } from 'react';
 
 export const UserContext = createContext();
-export const MainSectionContext = createContext();
 
 export default function Home({ auth }) {
     const mainSectionRef = useRef(null);
