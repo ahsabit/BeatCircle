@@ -53,7 +53,7 @@ export default function MainSection ({ mainSectionRef, className, ...props }) {
             {
                 musicData.map((musics, i) => {
                     return(
-                        <MusicSection className="music_section z-30" key={i} musicList={musics} title={musics[0]['album']}/>
+                        <MusicSection className="music_section z-20" key={i} musicList={musics} title={musics[0]['album']}/>
                     );
                 })
             }

@@ -53,7 +53,7 @@ export default function PageHeader() {
                 </div>
                 <SearchItems className="lg:hidden hidden md:ml-64" upRef={mobileSearchInput} backFn={searckFieldClose}/>
             </div>
-            <ul className="hidden fixed top-0 left-0 menu bg-base-200 text-base-content min-h-full w-64 p-4 md:flex">
+            <ul className="hidden fixed top-0 left-0 menu bg-base-200 text-base-content min-h-full w-64 p-4 md:flex z-30">
                 <li>
                     <a className="text-xl flex flex-row items-center cursor-pointer">
                         <img src="/images/BeatCircle-white.svg" alt="BeatCircle Icon" className="h-6 w-auto" />
