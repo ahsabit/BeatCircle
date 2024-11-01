@@ -13,8 +13,9 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
-Route::post('/fetch_music', [MusicController::class,'fetch'])->middleware(['throttle:freezeUser'])->name('music.fetch');
+Route::post('/music/fetch', [MusicController::class,'fetch'])->middleware(['throttle:freezeUser'])->name('music.fetch');
 
+Route::get('/music/search', [MusicController::class, 'index'])->name('music.search');
 //search result page music.show
 
 Route::get('/dashboard', function () {

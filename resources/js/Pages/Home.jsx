@@ -1,11 +1,13 @@
 import MainSection from '@/Components/MainSection';
 import PageHeader from '@/Components/PageHeader';
 import { Head } from '@inertiajs/react';
-import { createContext } from 'react';
+import { createContext, useRef } from 'react';
 
 export const UserContext = createContext();
+export const MainSectionContext = createContext();
 
 export default function Home({ auth }) {
+    const mainSectionRef = useRef(null);
 
     return (
         <>
@@ -15,7 +17,7 @@ export default function Home({ auth }) {
                 <PageHeader />
             </UserContext.Provider>
 
-            <MainSection />
+            <MainSection mainSectionRef={mainSectionRef}/>
         </>
     );
 }

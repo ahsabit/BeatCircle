@@ -24,27 +24,6 @@ export default function PageHeader() {
                 <div ref={visibleHeader} className='w-full flex flex-row flex-wrap'>
                     <div className="flex-none">
                         <Drawer className="md:hidden z-50" />
-                        <ul className="hidden fixed top-0 left-0 menu bg-base-200 text-base-content min-h-full w-64 p-4 md:flex">
-                            <li>
-                                <a className="text-xl flex flex-row items-center cursor-pointer">
-                                    <img src="/images/BeatCircle-white.svg" alt="BeatCircle Icon" className="h-6 w-auto" />
-                                    <span className="font-bold text-lg">BeatCircle</span>
-                                </a>
-                            </li>
-                            <li>
-                                <MainNavLink href="/">Home</MainNavLink>
-                            </li>
-                            <li>
-                                <MainNavLink href="#">Explore</MainNavLink>
-                            </li>
-                            <li>
-                                <MainNavLink href="#">Playlists</MainNavLink>
-                            </li>
-                            <hr className="my-6" />
-                            <li>
-                                <MainNavLink href="#" className="btn-ghost btn-active text-center rounded-full inline font-extrabold">New playlist</MainNavLink>
-                            </li>
-                        </ul>
                     </div>
                     <div className="flex-1">
                         <a className="text-xl flex flex-row items-center cursor-pointer md:hidden">
@@ -72,8 +51,29 @@ export default function PageHeader() {
                         <ProfileNav />
                     </div>
                 </div>
-                <SearchItems className="lg:hidden hidden" upRef={mobileSearchInput} backFn={searckFieldClose}/>
+                <SearchItems className="lg:hidden hidden md:ml-64" upRef={mobileSearchInput} backFn={searckFieldClose}/>
             </div>
+            <ul className="hidden fixed top-0 left-0 menu bg-base-200 text-base-content min-h-full w-64 p-4 md:flex">
+                <li>
+                    <a className="text-xl flex flex-row items-center cursor-pointer">
+                        <img src="/images/BeatCircle-white.svg" alt="BeatCircle Icon" className="h-6 w-auto" />
+                        <span className="font-bold text-lg">BeatCircle</span>
+                    </a>
+                </li>
+                <li>
+                    <MainNavLink href="/">Home</MainNavLink>
+                </li>
+                <li>
+                    <MainNavLink href="#">Explore</MainNavLink>
+                </li>
+                <li>
+                    <MainNavLink href="#">Playlists</MainNavLink>
+                </li>
+                <hr className="my-6" />
+                <li>
+                    <MainNavLink href="#" className="btn-ghost btn-active text-center rounded-full inline font-extrabold">New playlist</MainNavLink>
+                </li>
+            </ul>
         </header>
     );
 }

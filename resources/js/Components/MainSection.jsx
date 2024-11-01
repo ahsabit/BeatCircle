@@ -2,7 +2,7 @@ import MusicSection from '@/Components/MusicSection';
 import { useEffect, useRef, useState } from 'react';
 import Modal from './Modal';
 
-export default function MainSection () {
+export default function MainSection ({ mainSectionRef, className, ...props }) {
     const [musicData, setMusicData] = useState([]);
     const reqNum = useRef(0);
 
@@ -49,11 +49,11 @@ export default function MainSection () {
     };
 
     return (
-        <main className="flex flex-col">
+        <main className={"flex flex-col " + className} ref={mainSectionRef} {...props}>
             {
                 musicData.map((musics, i) => {
                     return(
-                        <MusicSection className="music_section" key={i} musicList={musics} title={musics[0]['album']}/>
+                        <MusicSection className="music_section z-30" key={i} musicList={musics} title={musics[0]['album']}/>
                     );
                 })
             }
