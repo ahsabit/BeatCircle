@@ -25,11 +25,10 @@ export default function PageHeader() {
                     <div className="flex-none">
                         <Drawer className="md:hidden z-50" />
                     </div>
-                    <div className="flex-1">
+                    <div className="flex-1 overflow-hidden">
                         <a className="text-xl flex flex-row items-center cursor-pointer md:hidden">
                             <img src="/images/BeatCircle-white.svg" alt="BeatCircle Icon" className="h-6 w-auto" />
-                            <span className="font-bold text-lg">BeatCircle</span>
-                            <span className='font-semibold text-base'>- Artist Name</span>
+                            <span className="font-bold text-lg block text-nowrap">BeatCircle - Artist Name</span>
                         </a>
                         <div className="w-full pl-64 hidden items-center justify-center lg:flex">
                             <SearchItems />

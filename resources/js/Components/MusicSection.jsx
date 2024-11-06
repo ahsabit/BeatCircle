@@ -42,13 +42,13 @@ export default function MusicSection({ className, musicList, title }) {
                 {isOverflowing && (
                     <>
                         <button
-                            className="prev-button absolute right-14 top-6 transform -translate-y-1/2 hover:bg-neutral-600 text-white p-2 rounded-l-xl shadow-md z-50 border border-neutral-300"
+                            className="prev-button absolute bg-base-100 right-14 top-6 transform -translate-y-1/2 hover:bg-neutral-600 text-white p-2 rounded-l-xl shadow-md z-50 border border-neutral-300"
                             onClick={handlePrev}
                         >
                             &larr;
                         </button>
                         <button
-                            className="next-button absolute right-6 top-6 transform -translate-y-1/2 hover:bg-neutral-600 text-white p-2 rounded-r-xl shadow-md z-50 border border-neutral-300"
+                            className="next-button absolute bg-base-100 right-6 top-6 transform -translate-y-1/2 hover:bg-neutral-600 text-white p-2 rounded-r-xl shadow-md z-50 border border-neutral-300"
                             onClick={handleNext}
                         >
                             &rarr;
@@ -63,7 +63,7 @@ export default function MusicSection({ className, musicList, title }) {
                     {musicList.map((music, i) => (
                         <a
                             key={i}
-                            href={music.link}
+                            href={route('music.main.show', music.id)}
                             className="card card-compact bg-neutral shadow-xl flex-[0_0_40%] sm:flex-[0_0_22%]"
                         >
                             <figure>

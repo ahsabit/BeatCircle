@@ -22,7 +22,6 @@ class MusicFactory extends Factory
             'artist' => fake()->name(),
             'price' => '$' . fake()->numberBetween(1, 50),
             'cover' => 'https://placehold.co/400',
-            'link' => fake()->url(),
             'credits_id' => 1,
         ];
     }

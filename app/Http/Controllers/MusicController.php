@@ -14,7 +14,7 @@ class MusicController extends Controller
     {
         try {
             $request->validate([
-                'bundle_count' => 'required|integer|between:1,4',
+                'bundle_count' => 'required|integer|between:0,4',
                 'req_num' => 'required|integer',
             ]);
             $bundleCount = $request->bundle_count;
@@ -76,15 +76,17 @@ class MusicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Music $credit)
+    public function show(Music $music)
     {
-        //
+        return Inertia::render('Show', [
+            'music' => new MusicResource($music)
+        ]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Music $credit)
+    public function edit(Music $music)
     {
         //
     }
@@ -92,7 +94,7 @@ class MusicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Music $credit)
+    public function update(Request $request, Music $music)
     {
         //
     }
@@ -100,7 +102,7 @@ class MusicController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Music $credit)
+    public function destroy(Music $music)
     {
         //
     }

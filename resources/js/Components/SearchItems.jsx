@@ -63,19 +63,28 @@ export default function SearchItems({ className , upRef, backFn, ...props}) {
         setHistoryParams(JSON.parse(localStorage.getItem('queryParams')));
     };
 
+    const backBtnFn = () => {
+        if (window.innerWidth >= 1024) {
+            handleRecommend(); 
+        }else{
+            handleRecommend();
+            backFn();
+        }
+    };
+
     useEffect(() => {
     }, []);
 
     return(
-        <div ref={upRef} id="search_section" className={"relative w-full flex flex-col justify-center items-center " + className} {...props}>
-            <label htmlFor="search" className="w-full flex items-center justify-start input input-bordered max-w-md px-0 relative z-50">
-                <span className="p-3 btn-ghost" onClick={() => {handleRecommend(); backFn();}}>
+        <div ref={upRef} id="search_section" className={"relative lg:absolute lg:w-[448px] w-full flex flex-col justify-center items-center " + className} {...props}>
+            <div className="w-full flex items-center justify-start input input-bordered max-w-md px-0 relative z-50">
+                <span className="p-3 btn-ghost" onClick={backBtnFn}>
                     <svg className="w-6" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M6 12H18M6 12L11 7M6 12L11 17" stroke="#cdcdcda2" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     </svg>
                 </span>
-                <input ref={searchRefOne} onKeyDown={(e) => searchTyped(e)} onFocus={handleRecommend} id="searchOne" type="text" placeholder="Search songs, albums, live streams" className="input border-none outline-none w-full hover:outline-none hover:border-none hidden lg:flex"/>
-                <input ref={searchRefTwo} onKeyDown={(e) => searchTyped(e)} onFocus={handleRecommend} id="searchTwo" type="text" placeholder="Search songs, albums, live streams" className="input border-none outline-none w-full hover:outline-none hover:border-none flex lg:hidden"/>
+                <input ref={searchRefOne} onKeyDown={(e) => searchTyped(e)} onFocus={() => handleRecommend()} type="text" placeholder="Search songs, albums, live streams" className="input border-none outline-none w-full hover:outline-none hover:border-none hidden lg:flex"/>
+                <input ref={searchRefTwo} onKeyDown={(e) => searchTyped(e)} onFocus={() => handleRecommend()} type="text" placeholder="Search songs, albums, live streams" className="input border-none outline-none w-full hover:outline-none hover:border-none flex lg:hidden"/>
                 <span className="p-3 btn-ghost" onClick={searchFn}>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -88,7 +97,7 @@ export default function SearchItems({ className , upRef, backFn, ...props}) {
                         clipRule="evenodd" />
                     </svg>
                 </span>
-            </label>
+            </div>
             <ul ref={recommendation} className='w-full hidden flex-col items-center'>
                 <div className="absolute top-14 z-50 w-[448px] h-fit">
                 {historyParams.map((param, i) => {

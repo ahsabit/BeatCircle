@@ -7,16 +7,14 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', function () {
-    return Inertia::render('Home', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-    ]);
+    return Inertia::render('Home');
 })->name('home');
 
-Route::post('/music/fetch', [MusicController::class,'fetch'])->middleware(['throttle:freezeUser'])->name('music.fetch');
+Route::post('/music/fetch', [MusicController::class,'fetch'])->name('music.fetch'); // add the middleware later "->middleware(['throttle:freezeUser'])"
 
 Route::get('/music/search', [MusicController::class, 'index'])->name('music.search');
-//search result page music.show
+
+Route::get('music/{id}', [MusicController::class,'show'])->middleware('auth')->name('music.main.show');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
