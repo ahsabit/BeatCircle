@@ -1,5 +1,11 @@
+import LargeNavbar from "@/Components/LargeNavbar";
+import MusicPlayer from "@/Components/MusicPlayer";
+
 export default function Show ( { music } ) {
     return(
-        <p>Sorry, hello</p>
+        <>
+            <LargeNavbar />
+            <MusicPlayer music={music} />
+        </>
     )
 };
