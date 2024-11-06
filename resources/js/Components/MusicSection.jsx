@@ -63,7 +63,7 @@ export default function MusicSection({ className, musicList, title }) {
                     {musicList.map((music, i) => (
                         <a
                             key={i}
-                            href={route('music.main.show', music.id)}
+                            href={route('music.show', music.id)}
                             className="card card-compact bg-neutral shadow-xl flex-[0_0_40%] sm:flex-[0_0_22%]"
                         >
                             <figure>

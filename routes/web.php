@@ -14,7 +14,7 @@ Route::post('/music/fetch', [MusicController::class,'fetch'])->name('music.fetch
 
 Route::get('/music/search', [MusicController::class, 'index'])->name('music.search');
 
-Route::get('music/{id}', [MusicController::class,'show'])->middleware('auth')->name('music.main.show');
+Route::resource('/music', MusicController::class);
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

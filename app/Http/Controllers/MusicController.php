@@ -79,7 +79,7 @@ class MusicController extends Controller
     public function show(Music $music)
     {
         return Inertia::render('Show', [
-            'music' => new MusicResource($music)
+            'music' => $music
         ]);
     }
 
